@@ -6,6 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
     kotlin("jvm") version "1.2.71"
     kotlin("plugin.spring") version "1.2.71"
+    kotlin("kapt") version "1.2.71"
 }
 
 group = "com.example"
@@ -37,6 +38,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<KotlinCompile> {
