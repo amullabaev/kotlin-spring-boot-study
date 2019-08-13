@@ -34,6 +34,7 @@
 
 
   <h2>${userName}</h2>
+  <h2>${lastname}</h2>
 
 </section>
 </body>

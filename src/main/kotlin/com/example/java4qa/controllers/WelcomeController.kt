@@ -1,22 +1,17 @@
 package com.example.java4qa.controllers
 
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.context.properties.ConfigurationProperties
+import com.example.java4qa.properties.CustomProperties
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
-@ConfigurationProperties(prefix = "custom-property")
-class WelcomeController {
+class WelcomeController(private val properties: CustomProperties) {
 
-    @Value("\${userName}")
-    lateinit var userName: String
-
-    @RequestMapping("/")
+    @GetMapping("/")
     fun index(model: Model): String {
-
-        model.addAttribute("userName", userName)
+        model.addAttribute("userName", properties.userName)
+        model.addAttribute("lastname", properties.lastname)
         return "welcome"
     }
 }
